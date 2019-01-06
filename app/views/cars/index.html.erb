@@ -1,0 +1,8 @@
+ <% @cars.each do |car| %>
+   <div class="col-md-3 col-sm-6 mb-3">
+     <%= show_car_image car %>
+     <h4 class="mt-2"><%= link_to car.name, car_path(car) %></h4>
+     <div><%= t(".price_yen", price: (number_with_delimiter car.price)) %></div>
+     <p><%= car.description %></p>
+   </div>
+ <% end %>
