@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
   def index
     @cars = Car.all
   end
@@ -16,15 +17,12 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
   end
 
   def edit
-    @car = Car.find(params[:id])
   end
 
   def update
-    @car = Car.find(params[:id])
     if @car.update(car_params)
       redirect_to @car, notice: "車体を更新しました。"
     else
@@ -33,7 +31,6 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    @car = Car.find(params[:id])
     @car.destroy
     redirect_to cars_path, notice: "車体を削除しました。"
   end
@@ -45,7 +42,10 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:name, :price, :publish_date, :description, :new_image)
+    params.require(:car).permit(:name, :price, :publish_date, :description, :new_image, :genre_id)
+  end
+  def set_car
+    @car = Car.find(params[:id])
   end
 
 end

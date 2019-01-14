@@ -9,6 +9,7 @@
     <ul>
       <li><b><%= t ".price" %>:</b><%= t(".price_yen", price: (number_with_delimiter @car.price)) %></li>
       <li><b><%= t ".publish_date" %>:</b><%= @car.publish_date %></li>
+      <li><b><%= t ".genre" %>: </b><%= @car.category.try(:name) %></li>
     </ul>
     </div>
   </div>

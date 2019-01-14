@@ -11,6 +11,8 @@ ja:
         description: 詳細
         new_image: 画像
         image: 画像
+        genre_id: ジャンル
+        genre: ジャンル
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

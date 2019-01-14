@@ -4,10 +4,13 @@ ja:
       title: 車体登録
     edit:
       title: 車体更新
+    form:
+      include_blank: ジャンルを選択して下さい
     show:
       price: 価格
       price_yen: "¥%{price}"
       publish_date: 発売日
+      genre: ジャンル
       description: 商品の説明
       edit: 編集
       return: 戻る
