@@ -2,15 +2,17 @@
 ja:
   activerecord:
     models:
-     car: 車体情報
-   attributes:
-     car:
-       name: 車名
-       price: 価格
-       publish_date: 発売日
-       description: 詳細
+      car: 車体情報
+    attributes:
+      car:
+        name: 車名
+        price: 価格
+        publish_date: 発売日
+        description: 詳細
         new_image: 画像
         image: 画像
+        genre_id: ジャンル
+        genre: ジャンル
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
