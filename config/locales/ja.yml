@@ -13,6 +13,22 @@ ja:
         image: 画像
         genre_id: ジャンル
         genre: ジャンル
+      user:
+        email: メールアドレス
+        nick_name: ニックネーム
+        avatar: プロフィール画像
+        password: パスワード
+        password_confirmation: パスワード再入力
+        current_password: 現在のパスワード
+        remember_me: ログイン情報を記録する
+      review:
+        title: タイトル
+        body: 本文
+        evaluation: 評価
+        car_id: 車体
+        car: 車体
+        user_id: ユーザー
+        user: ユーザー
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
