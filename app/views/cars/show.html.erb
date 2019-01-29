@@ -1,5 +1,4 @@
 <div class="col-md-10 offset-md-1 mt-5">
-  <%= render "shared/notice" %>
   <div class="row">
   <div class="col-md-4 mb-4">
     <%= show_car_image @car %>
@@ -9,7 +8,7 @@
     <ul>
       <li><b><%= t ".price" %>:</b><%= t(".price_yen", price: (number_with_delimiter @car.price)) %></li>
       <li><b><%= t ".publish_date" %>:</b><%= @car.publish_date %></li>
-      <li><b><%= t ".genre" %>: </b><%= @car.category.try(:name) %></li>
+      <li><b><%= t ".genre" %>: </b><%= @car.genre.try(:name) %></li>
     </ul>
     </div>
   </div>
@@ -19,6 +18,9 @@
   <%= link_to t(".edit"), edit_car_path(@car), class: "btn btn-primary" %>
   <%= button_tag t(".delete"), class: "btn btn-warning", data: { toggle: "modal", target: "#delete-car" } %>
   <%= link_to t(".return"), cars_path, class: "btn btn-secondary" %>
+  <hr>
+  <%= render partial: "reviews/review", collection: @car.reviews %>
+</div>
 </div>
 
 <div class="modal fade" id="delete-car">
@@ -35,6 +37,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t(".chancel") %></button>
+        <% if user_signed_in? %>
+          <%= link_to t(".review_new"), new_book_review_path(@book), class: "btn btn-info" %>
+        <% end %>
         <%= link_to t(".delete_action"), car_path(@car), method: :delete, class: "btn btn-danger" %>
       </div>
     </div>

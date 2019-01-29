@@ -1,5 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :genre
+  has_many :reviews
   has_one_attached :image
   attribute :new_image
   
