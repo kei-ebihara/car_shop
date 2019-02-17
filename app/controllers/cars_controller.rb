@@ -1,7 +1,9 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [:edit, :update, :destroy]
+
   def index
-    @cars = Car.includes(reviews: :user).page(params[:page]).per(4)
+    @q = Car.ransack(params[:q])
+    @cars = @q.result.with_attached_image.find_newest_cars(params[:page])
   end
   def new
     @car = Car.new
@@ -17,6 +19,7 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car = Car.with_attached_image.includes(reviews: :user).find(params[:id])
   end
 
   def edit
